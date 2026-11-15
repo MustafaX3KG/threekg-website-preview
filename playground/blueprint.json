@@ -1,0 +1,37 @@
+{
+  "$schema": "https://playground.wordpress.net/blueprint-schema.json",
+  "landingPage": "/wp-admin/admin.php?page=threekg-dashboard",
+  "preferredVersions": {
+    "php": "8.3",
+    "wp": "latest"
+  },
+  "phpExtensionBundles": ["kitchen-sink"],
+  "siteOptions": {
+    "blogname": "3KG Website Dashboard Preview",
+    "blogdescription": "Temporary dashboard and content preview"
+  },
+  "steps": [
+    {
+      "step": "login",
+      "username": "admin"
+    },
+    {
+      "step": "installTheme",
+      "themeData": {
+        "resource": "git:directory",
+        "url": "https://github.com/MustafaX3KG/threekg-website-preview",
+        "ref": "main",
+        "refType": "branch",
+        "path": "wordpress/threekg-revamp"
+      },
+      "options": {
+        "activate": true,
+        "targetFolderName": "threekg-revamp"
+      }
+    },
+    {
+      "step": "runPHP",
+      "code": "<?php\nrequire '/wordpress/wp-load.php';\n\n$home = get_page_by_path('home', OBJECT, 'page');\nif (!$home) {\n    $home_id = wp_insert_post(array(\n        'post_type' => 'page',\n        'post_status' => 'publish',\n        'post_title' => 'Home',\n        'post_name' => 'home',\n        'post_content' => '',\n    ));\n} else {\n    $home_id = $home->ID;\n}\n\nupdate_option('show_on_front', 'page');\nupdate_option('page_on_front', (int) $home_id);\nupdate_option('permalink_structure', '/%postname%/');\n\nif (function_exists('threekg_read_bundled_projects') && function_exists('threekg_run_project_import')) {\n    $source = threekg_read_bundled_projects();\n    if (!is_wp_error($source) && !empty($source['projects'])) {\n        threekg_run_project_import($source['projects'], 'publish', false);\n    }\n}\n\nflush_rewrite_rules();\n"
+    }
+  ]
+}

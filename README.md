@@ -10,6 +10,12 @@ Private testing repository for the current 3KG website review.
 
 **Preview:** https://threekg-website-preview.wrykite12.chatgpt.site
 
+**GitHub Pages:** https://mustafax3kg.github.io/threekg-website-preview/
+
+**Temporary WordPress dashboard:** https://playground.wordpress.net/?blueprint-url=https://mustafax3kg.github.io/threekg-website-preview/playground/blueprint.json
+
+The Playground link installs the theme and signs in as a temporary administrator in the browser. Playground edits are not production data and may be lost when browser storage is cleared.
+
 This contains the profile-aligned website and portfolio refresh. It is a review environment; no public deployment is configured. The original site and Git history are maintained in [MustafaX3KG/threekg-website](https://github.com/MustafaX3KG/threekg-website).
 
 ## Webflow CMS migration kit
