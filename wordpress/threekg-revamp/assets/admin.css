@@ -1,0 +1,134 @@
+.threekg-admin {
+  max-width: 1180px;
+}
+
+.threekg-admin__hero {
+  align-items: center;
+  background: #101010;
+  border-radius: 16px;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  margin: 22px 0;
+  padding: 28px 32px;
+}
+
+.threekg-admin__hero h1 {
+  color: inherit;
+  font-size: 32px;
+  line-height: 1.1;
+  margin: 4px 0 8px;
+}
+
+.threekg-admin__hero p {
+  margin-bottom: 0;
+}
+
+.threekg-kicker {
+  color: #ff4b19;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.threekg-stat-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin: 0 0 20px;
+}
+
+.threekg-stat {
+  background: #fff;
+  border: 1px solid #dcdcde;
+  border-radius: 12px;
+  color: #1d2327;
+  display: grid;
+  gap: 5px;
+  padding: 22px;
+  text-decoration: none;
+}
+
+.threekg-stat:hover {
+  border-color: #ff4b19;
+  color: #101010;
+}
+
+.threekg-stat .dashicons {
+  color: #ff4b19;
+}
+
+.threekg-stat strong {
+  font-size: 30px;
+  line-height: 1;
+}
+
+.threekg-admin-grid {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.threekg-panel {
+  background: #fff;
+  border: 1px solid #dcdcde;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  padding: 22px 24px;
+}
+
+.threekg-panel h2:first-child {
+  margin-top: 0;
+}
+
+.threekg-settings-section {
+  max-width: 880px;
+}
+
+.threekg-fields {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.threekg-field {
+  display: grid;
+  gap: 7px;
+  margin-bottom: 18px;
+}
+
+.threekg-fields .threekg-field--textarea,
+.threekg-fields .threekg-field--boolean {
+  grid-column: 1 / -1;
+}
+
+.threekg-input-row {
+  align-items: center;
+  display: flex;
+  gap: 8px;
+}
+
+.threekg-input-row input {
+  flex: 1;
+}
+
+.threekg-table-wrap {
+  overflow-x: auto;
+}
+
+@media (max-width: 782px) {
+  .threekg-admin__hero,
+  .threekg-input-row {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .threekg-stat-grid,
+  .threekg-admin-grid,
+  .threekg-fields {
+    grid-template-columns: 1fr;
+  }
+}
+

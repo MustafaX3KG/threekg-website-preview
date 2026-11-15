@@ -3,6 +3,18 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
+$threekg_includes = array(
+    '/inc/content-types.php',
+    '/inc/meta-fields.php',
+    '/inc/site-settings.php',
+    '/inc/importer.php',
+    '/inc/frontend-content.php',
+);
+
+foreach ($threekg_includes as $threekg_include) {
+    require_once get_template_directory() . $threekg_include;
+}
+
 function threekg_revamp_setup() {
     add_theme_support('title-tag');
     add_theme_support('post-thumbnails');
@@ -29,6 +41,7 @@ add_action('wp_enqueue_scripts', 'threekg_revamp_assets');
 function threekg_revamp_body_classes($classes) {
     if (is_front_page()) {
         $classes[] = 'is-loading';
+        $classes[] = 'profile-aligned';
     }
     return $classes;
 }

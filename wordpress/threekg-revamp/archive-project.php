@@ -4,7 +4,7 @@
   <div class="work__editorial">
     <?php $i = 0; while (have_posts()) : the_post();
       $client = threekg_project_meta(get_the_ID(), '_3kg_project_client', get_the_title());
-      $image = get_the_post_thumbnail_url(get_the_ID(), 'full') ?: threekg_fallback_image($i);
+      $image = get_the_post_thumbnail_url(get_the_ID(), 'full') ?: threekg_project_meta(get_the_ID(), '_3kg_project_hero_image', threekg_fallback_image($i));
       $terms = get_the_terms(get_the_ID(), 'project_sector');
       $tag = ($terms && !is_wp_error($terms)) ? $terms[0]->name : get_the_excerpt(); ?>
       <a class="work-block <?php echo esc_attr(threekg_archive_columns($i)); ?> reveal" href="<?php the_permalink(); ?>">

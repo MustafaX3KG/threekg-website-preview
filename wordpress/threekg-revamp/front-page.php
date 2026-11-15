@@ -7,7 +7,10 @@ while (have_posts()) :
     if (trim(get_the_content()) !== '' || get_post_meta(get_the_ID(), '_elementor_edit_mode', true) === 'builder') {
         the_content();
     } else {
+        ob_start();
         get_template_part('template-parts/profile-home');
+        $threekg_homepage = ob_get_clean();
+        echo threekg_render_dynamic_homepage($threekg_homepage); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
     }
 endwhile;
 get_footer();
