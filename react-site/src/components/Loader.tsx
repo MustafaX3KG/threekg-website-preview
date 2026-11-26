@@ -42,7 +42,7 @@ export default function Loader() {
       }}
     >
       <video
-        className="h-full w-full object-cover"
+        className="h-auto w-[min(64vw,24rem)] object-contain sm:w-[min(48vw,28rem)]"
         src="assets/brand/motion/loader.mp4"
         muted
         autoPlay
